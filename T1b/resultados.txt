@@ -1,0 +1,164 @@
+Sistema operativo utilizado
+Linux debian11mate 5.10.0-19-amd64 #1 SMP Debian 5.10.149-2 (2022-10-21) x86_64 GNU/Linux
+==== run-san ====
+gcc -g -DSAN=1 -fsanitize=address -fsanitize=undefined -Wall -Werror -std=c18  suma.c test-suma.c suma.h -lm -lpthread -o suma.bin-san
+./suma.bin-san
+Test 1: El ejemplo del enunciado
+-3 -2 5 
+el intervalo es [1,3]
+el intervalo es [4,6]
+el intervalo es [7,9]
+el intervalo es [10,12]
+el intervalo es [13,15]
+el intervalo es [16,18]
+el intervalo es [19,21]
+el intervalo es [22,24]
+-3 -2 5 
+test 1 aprobado
+
+--------------------------------------------------
+
+Test 2: Uno ejemplo mas grande con n=26, sin solucion
+Calculando secuencialmente 2 veces
+Tiempo secuencial= 12581 milisegundos
+Tiempo secuencial= 12465 milisegundos
+Calculando en paralelo hasta 5 veces
+el intervalo es [1,8388607]
+el intervalo es [8388608,16777214]
+el intervalo es [16777215,25165821]
+el intervalo es [25165822,33554428]
+el intervalo es [33554429,41943035]
+el intervalo es [41943036,50331642]
+el intervalo es [50331643,58720249]
+el intervalo es [58720250,67108856]
+buscar par tiempo= 7291 miliseg., speedup= 1.709642
+test 1 aprobado: speedup >= 0.010000
+
+--------------------------------------------------
+
+Uno ejemplo muy grande con n=29, con solucion
+Calculando secuencialmente 2 veces
+-3 -2 5 
+Tiempo secuencial= 0 milisegundos
+Calculando en paralelo
+el intervalo es [1,67108863]
+el intervalo es [67108864,134217726]
+el intervalo es [134217727,201326589]
+el intervalo es [201326590,268435452]
+el intervalo es [268435453,335544315]
+el intervalo es [335544316,402653178]
+el intervalo es [402653179,469762041]
+el intervalo es [469762042,536870904]
+buscar par tiempo= 52780 miliseg., speedup= 0.000000
+No se preocupe.  Es normal que la version paralela se demore
+mucho mas.  Pero piense por que.
+
+Felicitaciones: su tarea funciona
+==== run-g ====
+gcc -g -Wall -Werror -std=c18  suma.c test-suma.c suma.h -lm -lpthread -o suma.bin-g
+./suma.bin-g
+Test 1: El ejemplo del enunciado
+-3 -2 5 
+el intervalo es [1,3]
+el intervalo es [4,6]
+el intervalo es [7,9]
+el intervalo es [10,12]
+el intervalo es [13,15]
+el intervalo es [16,18]
+el intervalo es [19,21]
+el intervalo es [22,24]
+-3 -2 5 
+test 1 aprobado
+
+--------------------------------------------------
+
+Test 2: Uno ejemplo mas grande con n=26, sin solucion
+Calculando secuencialmente 2 veces
+Tiempo secuencial= 8645 milisegundos
+Tiempo secuencial= 8587 milisegundos
+Calculando en paralelo hasta 5 veces
+el intervalo es [1,8388607]
+el intervalo es [8388608,16777214]
+el intervalo es [16777215,25165821]
+el intervalo es [25165822,33554428]
+el intervalo es [33554429,41943035]
+el intervalo es [41943036,50331642]
+el intervalo es [50331643,58720249]
+el intervalo es [58720250,67108856]
+buscar par tiempo= 5070 miliseg., speedup= 1.693688
+test 1 aprobado: speedup >= 0.010000
+
+--------------------------------------------------
+
+Uno ejemplo muy grande con n=29, con solucion
+Calculando secuencialmente 2 veces
+-3 -2 5 
+Tiempo secuencial= 0 milisegundos
+Calculando en paralelo
+el intervalo es [1,67108863]
+el intervalo es [67108864,134217726]
+el intervalo es [134217727,201326589]
+el intervalo es [201326590,268435452]
+el intervalo es [268435453,335544315]
+el intervalo es [335544316,402653178]
+el intervalo es [402653179,469762041]
+el intervalo es [469762042,536870904]
+buscar par tiempo= 38370 miliseg., speedup= 0.000000
+No se preocupe.  Es normal que la version paralela se demore
+mucho mas.  Pero piense por que.
+
+Felicitaciones: su tarea funciona
+==== run ====
+gcc -O -DOPT=1 -Wall -Werror -std=c18  suma.c test-suma.c suma.h -lm -lpthread -o suma.bin
+./suma.bin
+Test 1: El ejemplo del enunciado
+-3 -2 5 
+el intervalo es [1,3]
+el intervalo es [4,6]
+el intervalo es [7,9]
+el intervalo es [10,12]
+el intervalo es [13,15]
+el intervalo es [16,18]
+el intervalo es [19,21]
+el intervalo es [22,24]
+-3 -2 5 
+test 1 aprobado
+
+--------------------------------------------------
+
+Test 2: Uno ejemplo mas grande con n=26, sin solucion
+Calculando secuencialmente 2 veces
+Tiempo secuencial= 5022 milisegundos
+Tiempo secuencial= 5031 milisegundos
+Calculando en paralelo hasta 5 veces
+el intervalo es [1,8388607]
+el intervalo es [8388608,16777214]
+el intervalo es [16777215,25165821]
+el intervalo es [25165822,33554428]
+el intervalo es [33554429,41943035]
+el intervalo es [41943036,50331642]
+el intervalo es [50331643,58720249]
+el intervalo es [58720250,67108856]
+buscar par tiempo= 2943 miliseg., speedup= 1.709480
+test 1 aprobado: speedup >= 1.500000
+
+--------------------------------------------------
+
+Uno ejemplo muy grande con n=29, con solucion
+Calculando secuencialmente 2 veces
+-3 -2 5 
+Tiempo secuencial= 0 milisegundos
+Calculando en paralelo
+el intervalo es [1,67108863]
+el intervalo es [67108864,134217726]
+el intervalo es [134217727,201326589]
+el intervalo es [201326590,268435452]
+el intervalo es [268435453,335544315]
+el intervalo es [335544316,402653178]
+el intervalo es [402653179,469762041]
+el intervalo es [469762042,536870904]
+buscar par tiempo= 16478 miliseg., speedup= 0.000000
+No se preocupe.  Es normal que la version paralela se demore
+mucho mas.  Pero piense por que.
+
+Felicitaciones: su tarea funciona
